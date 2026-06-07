@@ -1,0 +1,295 @@
+.pet {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pet-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: idle-animation 3s ease-in-out infinite;
+}
+
+/* 头部 */
+.head {
+  position: absolute;
+  width: 60px;
+  height: 70px;
+  background: linear-gradient(135deg, #FFB6C1, #FFC0CB);
+  border-radius: 50% 50% 45% 45%;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 
+    inset -5px -5px 10px rgba(0, 0, 0, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+}
+
+/* 眼睛 */
+.eye {
+  position: absolute;
+  width: 12px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  top: 25px;
+}
+
+.eye-left {
+  left: 15px;
+}
+
+.eye-right {
+  right: 15px;
+}
+
+.pupil {
+  position: absolute;
+  width: 6px;
+  height: 8px;
+  background: #333;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+
+/* 嘴巴 */
+.mouth {
+  position: absolute;
+  width: 20px;
+  height: 12px;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #FF69B4;
+  border-radius: 0 0 20px 20px;
+}
+
+/* 身体 */
+.body {
+  position: absolute;
+  width: 50px;
+  height: 60px;
+  background: linear-gradient(135deg, #FFB6C1, #FFC0CB);
+  border-radius: 50% 50% 45% 45%;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 
+    inset -5px -5px 10px rgba(0, 0, 0, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 4;
+}
+
+/* 耳朵 */
+.ear {
+  position: absolute;
+  width: 18px;
+  height: 30px;
+  background: linear-gradient(135deg, #FF69B4, #FFB6C1);
+  border-radius: 50% 50% 40% 40%;
+  top: -10px;
+}
+
+.ear-left {
+  left: 8px;
+  transform: rotate(-20deg);
+}
+
+.ear-right {
+  right: 8px;
+  transform: rotate(20deg);
+}
+
+/* 手臂 */
+.arm {
+  position: absolute;
+  width: 16px;
+  height: 40px;
+  background: linear-gradient(135deg, #FFB6C1, #FFC0CB);
+  border-radius: 50%;
+  top: 95px;
+  box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.arm-left {
+  left: 20px;
+  transform: rotate(-30deg);
+  transform-origin: top center;
+  animation: arm-swing 1.5s ease-in-out infinite;
+}
+
+.arm-right {
+  right: 20px;
+  transform: rotate(30deg);
+  transform-origin: top center;
+  animation: arm-swing-reverse 1.5s ease-in-out infinite;
+}
+
+/* 腿 */
+.leg {
+  position: absolute;
+  width: 14px;
+  height: 35px;
+  background: linear-gradient(135deg, #FFB6C1, #FFC0CB);
+  border-radius: 50%;
+  top: 135px;
+  box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.leg-left {
+  left: 35px;
+  animation: leg-swing 1.5s ease-in-out infinite;
+}
+
+.leg-right {
+  right: 35px;
+  animation: leg-swing-reverse 1.5s ease-in-out infinite;
+}
+
+/* 尾巴 */
+.tail {
+  position: absolute;
+  width: 24px;
+  height: 50px;
+  background: linear-gradient(135deg, #FF69B4, #FFB6C1);
+  border-radius: 50% 50% 50% 0%;
+  bottom: 10px;
+  right: 5px;
+  transform: rotate(-45deg);
+  transform-origin: top left;
+  box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.1);
+  animation: tail-swing 2s ease-in-out infinite;
+}
+
+/* 动画 */
+@keyframes idle-animation {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes arm-swing {
+  0%, 100% {
+    transform: rotate(-30deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+}
+
+@keyframes arm-swing-reverse {
+  0%, 100% {
+    transform: rotate(30deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes leg-swing {
+  0%, 100% {
+    transform: skewX(0deg);
+  }
+  50% {
+    transform: skewX(-5deg);
+  }
+}
+
+@keyframes leg-swing-reverse {
+  0%, 100% {
+    transform: skewX(0deg);
+  }
+  50% {
+    transform: skewX(5deg);
+  }
+}
+
+@keyframes tail-swing {
+  0%, 100% {
+    transform: rotate(-45deg) rotateZ(0deg);
+  }
+  25% {
+    transform: rotate(-45deg) rotateZ(-10deg);
+  }
+  75% {
+    transform: rotate(-45deg) rotateZ(10deg);
+  }
+}
+
+@keyframes bob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* 状态样式 */
+.pet.happy .mouth {
+  animation: smile 0.5s ease-in-out;
+}
+
+@keyframes smile {
+  0%, 100% {
+    height: 12px;
+    border-radius: 0 0 20px 20px;
+  }
+  50% {
+    height: 16px;
+    border-radius: 0 0 25px 25px;
+  }
+}
+
+.pet.sad .mouth {
+  animation: frown 0.5s ease-in-out;
+}
+
+@keyframes frown {
+  0%, 100% {
+    height: 12px;
+    border-radius: 0 0 20px 20px;
+  }
+  50% {
+    height: 8px;
+    border-radius: 20px 20px 0 0;
+  }
+}
+
+.pet.tired .head,
+.pet.tired .body {
+  opacity: 0.7;
+  animation: drowsy 1s ease-in-out infinite;
+}
+
+@keyframes drowsy {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(2px);
+  }
+}
+
+.pet.walk {
+  animation: walk-animation 0.6s ease-in-out infinite;
+}
+
+@keyframes walk-animation {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}

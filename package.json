@@ -1,0 +1,61 @@
+{
+  "name": "desktop-pet",
+  "version": "1.0.0",
+  "description": "A cute 2D anime-style desktop pet application",
+  "main": "public/electron.js",
+  "homepage": "./",
+  "private": true,
+  "author": "Kaisleeee-dev",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "react-scripts": "5.0.1",
+    "electron": "^latest",
+    "electron-builder": "^24.6.4",
+    "electron-is-dev": "^2.0.0",
+    "concurrently": "^8.0.1",
+    "wait-on": "^7.0.1"
+  },
+  "scripts": {
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "react-test": "react-scripts test",
+    "electron-start": "wait-on http://localhost:3000 && electron .",
+    "start": "concurrently \"npm run react-start\" \"npm run electron-start\"",
+    "build": "npm run react-build && electron-builder",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "build": {
+    "appId": "com.desktop-pet.app",
+    "productName": "Desktop Pet",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "public/electron.js"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  }
+}

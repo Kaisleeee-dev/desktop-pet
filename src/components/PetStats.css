@@ -1,0 +1,65 @@
+.pet-stats {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  min-width: 200px;
+  font-size: 12px;
+}
+
+.stat-item {
+  margin-bottom: 12px;
+}
+
+.stat-item:last-child {
+  margin-bottom: 0;
+}
+
+.stat-label {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+  font-size: 11px;
+}
+
+.stat-bar {
+  width: 100%;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.stat-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+.stat-fill.hunger {
+  background: linear-gradient(90deg, #FF6B6B, #FFD93D);
+}
+
+.stat-fill.happiness {
+  background: linear-gradient(90deg, #6BCF7F, #4D96FF);
+}
+
+.stat-fill.energy {
+  background: linear-gradient(90deg, #FFD93D, #FF69B4);
+}
+
+.stat-fill.health {
+  background: linear-gradient(90deg, #FF6B6B, #6BCF7F);
+}
+
+.stat-value {
+  color: #666;
+  font-size: 10px;
+  text-align: right;
+}

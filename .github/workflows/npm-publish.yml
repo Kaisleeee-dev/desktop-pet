@@ -1,0 +1,53 @@
+# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
+
+name: Node.js Package
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm test
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org/
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+            - 名称：缓存
+  使用：actions/cache@v5.0.5
+  和：
+    # 要缓存和恢复的文件、目录和通配符模式列表
+    小路：
+    # 用于恢复和保存缓存的显式键
+    钥匙：
+    # 一个有序的多行字符串，列出前缀匹配的键，用于在未命中该键的缓存时恢复过期的缓存。注意，在这种情况下，`cache-hit` 返回 false。
+    恢复密钥：# 可选
+    # 上传过程中用于分割大文件的块大小，以字节为单位。
+    上传分块大小：# 可选
+    # 启用后，此为可选布尔值，允许 Windows 运行程序保存或恢复可在其他平台上恢复或保存的缓存。
+    启用跨操作系统归档：# 可选，默认为 false
+    # 如果未找到缓存条目，则工作流失败
+    fail-on-cache-miss: # 可选，默认为 false
+    # 检查给定输入（键、恢复键）是否存在缓存条目，而不下载缓存
+    仅查找：# 可选，默认为 false
+    # 即使之前的步骤失败，也运行此后置步骤以保存缓存。
+    save-always: # 可选，默认值为 false
+          
